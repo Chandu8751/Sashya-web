@@ -1,0 +1,12 @@
+{
+  "name": "Local News Network",
+  "short_name": "LNN",
+  "description": "Breaking news, live TV, and district updates.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#d6241d",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

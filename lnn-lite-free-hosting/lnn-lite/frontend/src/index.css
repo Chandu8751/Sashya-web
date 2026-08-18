@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --color-lnn-red: #d6241d;
+  --color-lnn-red-dark: #9e1610;
+  --color-lnn-red-light: #f04a41;
+  --color-lnn-ink: #14100f;
+  --color-lnn-paper: #ffffff;
+  --color-lnn-mist: #f5f3f1;
+  --color-lnn-line: #e7e2de;
+  --color-lnn-gold: #e8a93b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-lnn-ink);
+  background: var(--color-lnn-paper);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Ticker marquee */
+@keyframes lnn-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.lnn-marquee-track {
+  animation: lnn-marquee 32s linear infinite;
+}
+.lnn-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes lnn-pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.85); }
+}
+.lnn-live-dot {
+  animation: lnn-pulse-dot 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lnn-marquee-track {
+    animation: none;
+  }
+  .lnn-live-dot {
+    animation: none;
+  }
+}
+
+/* Line clamp helpers */
+.lnn-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.lnn-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lnn-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-lnn-line);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  outline: none;
+  background: var(--color-lnn-paper);
+}
+.lnn-input:focus {
+  border-color: var(--color-lnn-red);
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-lnn-red);
+  outline-offset: 2px;
+}
